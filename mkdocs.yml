@@ -21,7 +21,7 @@ extra:
 theme:
     name: material
     custom_dir: docs/overrides
-    logo: assets/img/swarmsbanner.png
+    logo: assets/img/SwarmsLogoIcon.png
     palette:
       # Palette toggle for light mode
     - scheme: default
