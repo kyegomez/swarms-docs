@@ -12,7 +12,7 @@ from marqo import Client
 openai.api_key_path = "../openai_api_key.txt"
 
 # Define the namespace
-namespace = "swarms-ai"
+namespace = "kyegomez"
 
 # Initialize the vector store driver
 vector_store = MarqoVectorStoreDriver(

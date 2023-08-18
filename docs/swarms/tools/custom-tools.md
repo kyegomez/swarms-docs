@@ -78,4 +78,4 @@ print(
 
 That's it! You can start using this tool with any converter or directly via Swarms.
 
-Check out other [Swarms tools](https://github.com/swarms-ai/swarms-tools/tree/main/swarms/tools) to learn more about tool implementation details.
+Check out other [Swarms tools](https://github.com/kyegomez/swarms-tools/tree/main/swarms/tools) to learn more about tool implementation details.

@@ -3,13 +3,13 @@
 We appreciate contributions and help maintaining this repository.
 
 ## Report and Issue
-The easiest way to contribute to our docs is through our public [issue tracker](https://github.com/swarms-ai/swarms-docs/issues). Feel free to submit bugs, request features or changes, or contribute to the project directly. 
+The easiest way to contribute to our docs is through our public [issue tracker](https://github.com/kyegomez/swarms-docs/issues). Feel free to submit bugs, request features or changes, or contribute to the project directly. 
 
 ## Pull Requests
 
 Swarms docs are built using [MkDocs](https://squidfunk.github.io/mkdocs-material/getting-started/). 
 
-To directly contribute to Swarms documentation, first fork the [swarms-docs](https://github.com/swarms-ai/swarms-docs) repository to your GitHub account. Then clone your repository to your local machine.
+To directly contribute to Swarms documentation, first fork the [swarms-docs](https://github.com/kyegomez/swarms-docs) repository to your GitHub account. Then clone your repository to your local machine.
 
 From inside the directory run: 
 
