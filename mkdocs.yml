@@ -6,16 +6,16 @@ copyright: "&copy; Swarms, Inc."
 extra_css:
   - assets/css/extra.css
 extra:
-  analytics:
-    provider: google
-    property: G-QM8EDPSCB6
+  # analytics:
+  #   provider: google
+  #   property: G-QM8EDPSCB6
   social:
     - icon: fontawesome/solid/house
-      link: https://www.apac.ai
+      link: https://github.com/kyegomez/swarms/blob/master/images/swarmsbanner.png
     - icon: fontawesome/brands/discord
-      link: https://discord.gg/gnWRz88eym
+      link: https://discord.gg/qUtxnK2NMf
     - icon: fontawesome/brands/github
-      link: https://github.com/Swarms-ai/Swarms/
+      link: https://github.com/kyegomez/Swarms/
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/Swarms/
 theme:
