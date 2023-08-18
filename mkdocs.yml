@@ -86,6 +86,8 @@ nav:
     - Summary Engines: "swarms/data/summary-engines.md"
     - Vector Stores: "swarms/data/vector-stores.md"
     - SQL Drivers: "swarms/data/sql-drivers.md"
+  - Models:
+    - Overview: "swarms/models/index.md"
 - Examples:
     - Overview: "examples/index.md"
     - Agents:

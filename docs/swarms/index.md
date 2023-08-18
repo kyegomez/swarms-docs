@@ -20,7 +20,7 @@ First, configure an OpenAI client by [getting an API key](https://beta.openai.co
 Install **swarms** and **swarms-tools**:
 
 ```
-pip install swarms swarms-tools -U
+pip3 install swarms 
 ```
 
 ### Using Poetry
