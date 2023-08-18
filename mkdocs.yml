@@ -62,6 +62,8 @@ nav:
     - Overview: "index.md"
     - Contributing: "contributing.md"
     - FAQ: "faq.md"
+    - Roadmap: "roadmap.md"
+    - Purpose: "purpose.md"
 - Swarms:
   - Overview: "swarms/index.md"
   - Structures:
