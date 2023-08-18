@@ -10,7 +10,7 @@ The Swarms framework provides developers with the ability to create AI systems t
 
 Swarms not only helps developers harness the potential of LLMs but also enforces trust boundaries, schema validation, and tool activity-level permissions. By doing so, Swarms maximizes LLMs’ reasoning while adhering to strict policies regarding their capabilities.
 
-[Learn more about swarms →](swarms-framework/)
+[Learn more about swarms →](swarms/)
 
 
 ## Examples
