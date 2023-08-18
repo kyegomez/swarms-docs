@@ -12,11 +12,6 @@ Swarms not only helps developers harness the potential of LLMs but also enforces
 
 [Learn more about swarms →](swarms-framework/)
 
-## Swarms Tools
-
-**swarms-tools** is a PyPI package with official tools. It's a great way to start using Swarms to see how easy it can be to build applications that extend LLMs' creative capabilities. Agents (or any other structure for that matter) can be used to connect your pre-processed data to LLMs via tools. Swarms tools are Python classes with activities. Activities are Python methods decorated with the @activity decorator. Each activity has a description (used to provide context to the LLM) and the input schema that the LLM must follow in order to use the tool. Swarms validates LLM outputs against the schema to ensure each tool activity is used correctly.
-
-[Learn more about swarms tools →](swarms-tools/)
 
 ## Examples
 
