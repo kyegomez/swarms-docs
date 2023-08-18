@@ -19,16 +19,24 @@ OpenAI(api_key: str, system: str = None, console: bool = True, model: str = None
 
 **Attributes:**
 - `api_key` (str): Your OpenAI API key.
+
 - `system` (str, optional): A system message to be used in conversations.
+
 - `console` (bool, default=True): Display console logs.
+
 - `model` (str, optional): Name of the language model to use.
+
 - `params` (dict, optional): Additional parameters for model interactions.
+
 - `save_messages` (bool, default=True): Save conversation messages.
 
 **Methods:**
 - `generate(message: str, **kwargs) -> str`: Generate a response using the OpenAI model.
+
 - `generate_async(message: str, **kwargs) -> str`: Generate a response asynchronously.
+
 - `ask_multiple(ids: List[str], question_template: str) -> List[str]`: Query multiple IDs simultaneously.
+
 - `stream_multiple(ids: List[str], question_template: str) -> List[str]`: Stream multiple responses.
 
 **Usage Example:**
@@ -56,13 +64,19 @@ HuggingFaceLLM(model_id: str, device: str = None, max_length: int = 20, quantize
 ```
 
 **Attributes:**
+
 - `model_id` (str): ID or name of the Hugging Face model.
+
 - `device` (str, optional): Device to run the model on (e.g., 'cuda', 'cpu').
+
 - `max_length` (int, default=20): Maximum length of generated text.
+
 - `quantize` (bool, default=False): Apply model quantization.
+
 - `quantization_config` (dict, optional): Configuration for quantization.
 
 **Methods:**
+
 - `generate(prompt_text: str, max_length: int = None) -> str`: Generate text based on a prompt.
 
 **Usage Example:**
@@ -88,10 +102,15 @@ GooglePalm(model_name: str = "models/chat-bison-001", google_api_key: str = None
 
 **Attributes:**
 - `model_name` (str): Name of the Google PaLM model.
+
 - `google_api_key` (str, optional): Google API key.
+
 - `temperature` (float, optional): Temperature for text generation.
+
 - `top_p` (float, optional): Top-p sampling value.
+
 - `top_k` (int, optional): Top-k sampling value.
+
 - `n` (int, default=1): Number of candidate completions.
 
 **Methods:**
@@ -119,15 +138,23 @@ Anthropic(model: str = "claude-2", max_tokens_to_sample: int = 256, temperature:
 ```
 
 **Attributes:**
+
 - `model` (str): Name of the Anthropic model.
+
 - `max_tokens_to_sample` (int, default=256): Maximum tokens to sample.
+
 - `temperature` (float, optional): Temperature for text generation.
+
 - `top_k` (int, optional): Top-k sampling value.
+
 - `top_p` (float, optional): Top-p sampling value.
+
 - `streaming` (bool, default=False): Enable streaming mode.
+
 - `default_request_timeout` (int, optional): Default request timeout.
 
 **Methods:**
+
 - `generate(prompt: str, stop: List[str] = None) -> str`: Generate text based on a prompt.
 
 **Usage Example:**
