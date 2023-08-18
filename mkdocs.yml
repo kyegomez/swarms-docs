@@ -11,7 +11,7 @@ extra:
   #   property: G-QM8EDPSCB6
   social:
     - icon: fontawesome/solid/house
-      link: https://github.com/kyegomez/swarms/blob/master/images/swarmsbanner.png
+      link: assets/img/SwarmsLogoIcon.png
     - icon: fontawesome/brands/discord
       link: https://discord.gg/qUtxnK2NMf
     - icon: fontawesome/brands/github
