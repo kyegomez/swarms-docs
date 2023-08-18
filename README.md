@@ -2,4 +2,4 @@
 
 [![Docs](https://readthedocs.org/projects/swarms/badge/)](https://swarms.readthedocs.io)
 
-Docs for [Swarms](https://github.com/swarms-ai/swarms).
+Docs for [Swarms](https://github.com/kyegomez/swarms).
