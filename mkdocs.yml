@@ -4,7 +4,7 @@ plugins:
   - search
 copyright: "&copy; Swarms, Inc."
 extra_css:
-  - assets/css/extra.css
+  - docs/assets/css/extra.css
 extra:
   # analytics:
   #   provider: google
@@ -21,7 +21,7 @@ extra:
 theme:
     name: material
     custom_dir: docs/overrides
-    logo: assets/img/Swarms-logo.png
+    logo: docs/assets/img/swarmsbanner.png
     palette:
       # Palette toggle for light mode
     - scheme: default
@@ -63,29 +63,29 @@ nav:
     - Contributing: "contributing.md"
     - FAQ: "faq.md"
 - Swarms Framework:
-  - Overview: "Swarms-framework/index.md"
+  - Overview: "swarmsk/index.md"
   - Structures:
-    - Pipelines: "Swarms-framework/structures/pipelines.md"
-    - Agents: "Swarms-framework/structures/agents.md"
-    - Workflows: "Swarms-framework/structures/workflows.md"
-    - Prompt Drivers: "Swarms-framework/structures/prompt-drivers.md"
-    - Conversation Memory: "Swarms-framework/structures/conversation-memory.md"
-    - Rulesets: "Swarms-framework/structures/rulesets.md"
-    - Events: "Swarms-framework/structures/events.md"
+    - Pipelines: "swarmsk/structures/pipelines.md"
+    - Agents: "swarmsk/structures/agents.md"
+    - Workflows: "swarmsk/structures/workflows.md"
+    - Prompt Drivers: "swarmsk/structures/prompt-drivers.md"
+    - Conversation Memory: "swarmsk/structures/conversation-memory.md"
+    - Rulesets: "swarmsk/structures/rulesets.md"
+    - Events: "swarmsk/structures/events.md"
   - Tools:
-      - Overview: "Swarms-framework/tools/index.md"
-      - Tool Memory: "Swarms-framework/tools/tool-memory.md"
-      - Building Custom Tools: "Swarms-framework/tools/custom-tools.md"
+      - Overview: "swarmsk/tools/index.md"
+      - Tool Memory: "swarmsk/tools/tool-memory.md"
+      - Building Custom Tools: "swarmsk/tools/custom-tools.md"
   - Data:
-    - Overview: "Swarms-framework/data/index.md"
-    - Artifacts: "Swarms-framework/data/artifacts.md"
-    - Embeddings: "Swarms-framework/data/embeddings.md"
-    - Chunkers: "Swarms-framework/data/chunkers.md"
-    - Loaders: "Swarms-framework/data/loaders.md"
-    - Query Engines: "Swarms-framework/data/query-engines.md"
-    - Summary Engines: "Swarms-framework/data/summary-engines.md"
-    - Vector Stores: "Swarms-framework/data/vector-stores.md"
-    - SQL Drivers: "Swarms-framework/data/sql-drivers.md"
+    - Overview: "swarmsk/data/index.md"
+    - Artifacts: "swarmsk/data/artifacts.md"
+    - Embeddings: "swarmsk/data/embeddings.md"
+    - Chunkers: "swarmsk/data/chunkers.md"
+    - Loaders: "swarmsk/data/loaders.md"
+    - Query Engines: "swarmsk/data/query-engines.md"
+    - Summary Engines: "swarmsk/data/summary-engines.md"
+    - Vector Stores: "swarmsk/data/vector-stores.md"
+    - SQL Drivers: "swarmsk/data/sql-drivers.md"
 - Swarms Tools:
     - Overview: "Swarms-tools/index.md"
     - Official Tools:
