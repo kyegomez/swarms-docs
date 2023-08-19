@@ -63,50 +63,58 @@ The worker infrastructure is a step above individual agents. Here, an agent is p
 ### 4. Swarm Level
 
 **Overview:**
-At the swarm level, multiple worker nodes (agents) are orchestrated together. The orchestrator manages the swarm, ensuring distributed tasking, efficient load balancing, and communication between agents. It is akin to how orchestration tools like Kubernetes manage containers.
+At the swarm level, the orchestrator is central. It's responsible for assigning tasks to worker nodes, monitoring their completion, and handling the communication layer (for example, through a vector store or another universal communication mechanism) between worker nodes.
 
 **Diagram:**
 ```
-        +------------+
-        |Orchestrator|
-        +------------+
-             /   \
-  +----------------+   +----------------+
-  |  WorkerNode    |   |  WorkerNode    |
-  |                |   |                |
-  +----------------+   +----------------+
-          .                     .
-          .                     .
-          .                     .
-  +----------------+   +----------------+
-  |  WorkerNode    |   |  WorkerNode    |
-  |                |   |                |
-  +----------------+   +----------------+
+                     +------------+
+                     |Orchestrator|
+                     +------------+
+                           |
+            +---------------------------+
+            |                           |
+            |   Swarm-level Communication|
+            |          Layer (e.g.      |
+            |        Vector Store)      |
+            +---------------------------+
+             /          |          \         
+  +---------------+  +---------------+  +---------------+
+  |WorkerNode 1   |  |WorkerNode 2   |  |WorkerNode n   |
+  |               |  |               |  |               |
+  +---------------+  +---------------+  +---------------+
+   | Task Assigned   | Task Completed   | Communication |
 ```
 
 ### 5. Hivemind Level
 
 **Overview:**
-The hivemind represents the zenith of this abstraction. Here, multiple swarms are coordinated together, forming a mega-structure. This configuration is best for highly complex tasks that require vast computational power and parallelism.
+At the Hivemind level, it's a multi-swarm setup, with an upper-layer orchestrator managing multiple swarm-level orchestrators. The Hivemind orchestrator is responsible for broader tasks like assigning macro-tasks to swarms, handling inter-swarm communications, and ensuring the overall system is functioning smoothly.
 
 **Diagram:**
 ```
-             +--------+
-             |Hivemind|
-             +--------+
-                 |
-            +------------+
-            |Orchestrator|
-            +------------+
-                 /   \
-  +----------------+   +----------------+
-  |    Swarm       |   |    Swarm       |
-  +----------------+   +----------------+
-      /    \               /     \
-+--------+ +--------+  +--------+ +--------+
-|Worker  | |Worker  |  |Worker  | |Worker  |
-| Node   | | Node   |  | Node   | | Node   |
-+--------+ +--------+  +--------+ +--------+
+                     +--------+
+                     |Hivemind|
+                     +--------+
+                         |
+                 +--------------+
+                 |Hivemind      |
+                 |Orchestrator  |
+                 +--------------+
+            /         |          \         
+    +------------+  +------------+  +------------+
+    |Orchestrator|  |Orchestrator|  |Orchestrator|
+    +------------+  +------------+  +------------+
+        |               |               |
++--------------+ +--------------+ +--------------+
+|   Swarm-level| |   Swarm-level| |   Swarm-level|
+|Communication| |Communication| |Communication|
+|    Layer    | |    Layer    | |    Layer    |
++--------------+ +--------------+ +--------------+
+    /    \         /    \         /     \
++-------+ +-------+ +-------+ +-------+ +-------+
+|Worker | |Worker | |Worker | |Worker | |Worker |
+| Node  | | Node  | | Node  | | Node  | | Node  |
++-------+ +-------+ +-------+ +-------+ +-------+
 ```
 
-With these abstractions, the architecture allows for scalable and distributed operations, making it adaptable for varied complexities of tasks.
+This setup allows the Hivemind level to operate at a grander scale, with the capability to manage hundreds or even thousands of worker nodes across multiple swarms efficiently.
