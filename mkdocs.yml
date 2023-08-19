@@ -72,6 +72,7 @@ nav:
     - Distribution: "distribution"
     - Research: "research.md"
     - Demos: "demos.md"
+    - Architecture: "architecture.md"
 - Swarms:
   - Overview: "swarms/index.md"
   - Structures:
