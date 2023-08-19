@@ -64,6 +64,8 @@ nav:
     - FAQ: "faq.md"
     - Roadmap: "roadmap.md"
     - Purpose: "purpose.md"
+    - Weaknesses: "failures.md"
+    - Design: "design.md"
 - Swarms:
   - Overview: "swarms/index.md"
   - Structures:
