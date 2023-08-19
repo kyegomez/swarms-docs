@@ -73,6 +73,7 @@ nav:
     - Research: "research.md"
     - Demos: "demos.md"
     - Architecture: "architecture.md"
+    - Checklist: "checklist.md"
 - Swarms:
   - Overview: "swarms/index.md"
   - Structures:
