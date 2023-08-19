@@ -70,6 +70,8 @@ nav:
     - Bounties: "bounties.md"
     - Metric: "metric.md"
     - Distribution: "distribution"
+    - Research: "research.md"
+    - Demos: "demos.md"
 - Swarms:
   - Overview: "swarms/index.md"
   - Structures:

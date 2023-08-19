@@ -154,7 +154,12 @@ By offering a variety of services and payment models, Swarms.AI will be able to 
 
 * each user gets a dedicated ocean instance of all their data so the swarm can query it as needed.
 
-* 
+
+
+
+---
+---
+
 
 # Swarms Monetization Strategy: A Revolutionary AI-powered Future
 
