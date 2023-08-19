@@ -66,6 +66,8 @@ nav:
     - Purpose: "purpose.md"
     - Weaknesses: "failures.md"
     - Design: "design.md"
+    - Flywheel: "flywheel.md"
+    - Bounties: "bounties.md"
 - Swarms:
   - Overview: "swarms/index.md"
   - Structures:
