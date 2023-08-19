@@ -31,6 +31,7 @@ OpenAI(api_key: str, system: str = None, console: bool = True, model: str = None
 - `save_messages` (bool, default=True): Save conversation messages.
 
 **Methods:**
+
 - `generate(message: str, **kwargs) -> str`: Generate a response using the OpenAI model.
 
 - `generate_async(message: str, **kwargs) -> str`: Generate a response asynchronously.
@@ -101,6 +102,7 @@ GooglePalm(model_name: str = "models/chat-bison-001", google_api_key: str = None
 ```
 
 **Attributes:**
+
 - `model_name` (str): Name of the Google PaLM model.
 
 - `google_api_key` (str, optional): Google API key.
@@ -114,7 +116,9 @@ GooglePalm(model_name: str = "models/chat-bison-001", google_api_key: str = None
 - `n` (int, default=1): Number of candidate completions.
 
 **Methods:**
+
 - `generate(messages: List[Dict[str, Any]], stop: List[str] = None, **kwargs) -> Dict[str, Any]`: Generate text based on a list of messages.
+
 - `__call__(messages: List[Dict[str, Any]], stop: List[str] = None, **kwargs) -> Dict[str, Any]`: Generate text using the call syntax.
 
 **Usage Example:**
