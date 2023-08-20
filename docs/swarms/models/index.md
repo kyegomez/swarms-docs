@@ -171,4 +171,4 @@ generated_text = anthropic.generate(prompt)
 print(generated_text)
 ```
 
-This concludes the documentation for the "swarms" package, providing you with tools to seamlessly integrate with various language models and APIs. Happy coding!
+This concludes the documentation for the "models" folder, providing you with tools to seamlessly integrate with various language models and APIs. Happy coding!
