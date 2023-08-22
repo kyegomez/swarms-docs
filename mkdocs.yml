@@ -96,9 +96,10 @@ nav:
         - Count Tokens: "examples/count-tokens.md"
         - Using Text Generation Web UI: "examples/using-text-generation-web-ui.md"
         - Storing Conversation Memory in DynamoDB: "examples/store-conversation-memory-in-dynamodb.md"
-  - Applications In Real Life:
+- Applications:
     - Overview: 
     - Customer Support: "applications/customer_support.md"
     - Marketing Agencies: "applications/marketing_agencies.md" 
-    - Network Traffic:
-    - Games:
+    # - Network Traffic:
+    # - Games:
+    # - General Enterprise Use: "applications/enterprise.md"
