@@ -150,6 +150,21 @@ for i in range(100):
     auto_scaler.add_task(f"Task {i}")
 ```
 
+### Pass in Custom Agent
+You can pass any agent class that adheres to the required interface (like having a run() method). If no class is passed, it defaults to using AutoBot. This makes the AutoScaler more flexible and able to handle a wider range of agent implementations.
+
+```python
+from swarms import AutoScaler
+
+auto_scaler = AutoScaler(agent_class=YourCustomAgent)
+auto_scaler.start()
+
+for i in range(100):  # Adding tasks
+    auto_scaler.add_task(f"Task {i}")
+
+```
+
+
 ---
 
 **Notes**:
