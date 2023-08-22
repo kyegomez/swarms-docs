@@ -97,7 +97,6 @@ nav:
         - Using Text Generation Web UI: "examples/using-text-generation-web-ui.md"
         - Storing Conversation Memory in DynamoDB: "examples/store-conversation-memory-in-dynamodb.md"
 - Applications:
-    - Overview: 
     - Customer Support: 
       - Overview: "applications/customer_support.md"
     - Marketing Agencies: 
