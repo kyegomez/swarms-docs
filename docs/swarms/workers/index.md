@@ -6,6 +6,10 @@
 
 The `Worker` class represents a core component of the framework designed to interact with ChatOpenAI models, utilize embeddings and vector stores, and run tasks. Enhanced with logging, error handling, and timing utilities, this class is integral for scalable and efficient task processing.
 
+```
+from swarms import WorkerNode
+```
+
 ---
 
 ### Constructor: `Worker.__init__()`
@@ -120,11 +124,31 @@ Allows the worker instance to be called as a function to execute the given task.
 
 **Example Usage**:
 ```python
+from swarms import Worker
+
 worker_instance = Worker()
 task = "Some specific task"
 result = worker_instance(task)  # Using worker as callable
 print(result)
 ```
+**Configured Worker**:
+```python
+from swarms import Worker
+
+
+node = Worker(
+    openai_api_key="",
+    ai_name="Optimus Prime",
+    ai_role="You are John a nice worker in a swarm",
+    model_name="gpt-4
+)
+
+task = "What were the winning boston marathon times for the past 5 years (ending in 2022)? Generate a table of the year, name, country of origin, and times."
+response = node.run(task)
+print(response)
+
+```
+
 
 ---
 
