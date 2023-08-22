@@ -74,6 +74,7 @@ nav:
     - Demos: "demos.md"
     - Architecture: "architecture.md"
     - Checklist: "checklist.md"
+    - Hiring: "hiring.md"
 - Swarms:
   - Overview: "swarms/index.md"
   - AutoScaler: "swarms/swarms/autoscaler.md"
