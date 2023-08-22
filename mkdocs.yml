@@ -98,8 +98,10 @@ nav:
         - Storing Conversation Memory in DynamoDB: "examples/store-conversation-memory-in-dynamodb.md"
 - Applications:
     - Overview: 
-    - Customer Support: "applications/customer_support.md"
-    - Marketing Agencies: "applications/marketing_agencies.md" 
+    - Customer Support: 
+      - Overview: "applications/customer_support.md"
+    - Marketing Agencies: 
+      - Overview: "applications/marketing_agencies.md" 
     # - Network Traffic:
     # - Games:
     # - General Enterprise Use: "applications/enterprise.md"
