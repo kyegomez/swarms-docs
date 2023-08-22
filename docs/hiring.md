@@ -9,7 +9,7 @@ At Swarms, our mission transcends mere technological advancement. We envision a 
 ### **Why Swarms?** 
 
 #### **For the Ambitious Spirit**:
-- **Opportunity Beyond Boundaries**: Just as Fuller believed in the infinite opportunities of America, we believe in the limitless potential of human-AI synergy.
+- **Opportunity Beyond Boundaries**: Just as Fuller believed in the infinite opportunities of America, we believe in the limitless potential of raw Humantiy.
   
 #### **For the Maverick**:
 - **Unprecedented Independence**: Like the Fuller salesmen, our team members have the autonomy to sculpt their roles, timelines, and outcomes. Here, you’re the captain of your ship.
@@ -30,13 +30,13 @@ At Swarms, our mission transcends mere technological advancement. We envision a 
 
 ### **Benefits of Joining Swarms**:
 
-1. **Empower Humanity**: Play an instrumental role in democratizing technology for all.
+1. **Advance Humanity**: Play an instrumental role in democratizing technology for all.
 2. **Financial Prosperity**: Harness a compensation structure that grows with your achievements.
 3. **Flexible Work Environment**: Customize your workspace, schedule, and workstyle.
 4. **Global Network**: Collaborate with some of the brightest minds spanning continents.
 5. **Personal Development**: Regular workshops, courses, and seminars to fuel your growth.
 6. **Health & Wellness**: Comprehensive health benefits and well-being programs.
-7. **Ownership & Equity**: As we grow, so does your stake and impact.
+7. **Ownership & Equity**: As we grow, so does your stake and impact in our organization.
 8. **Retreats & Team Building**: Forge bonds beyond work in exotic locations globally.
 9. **Customer Success Impact**: Directly experience the joy of solving real-world challenges for our users.
 
