@@ -173,5 +173,3 @@ for i in range(100):  # Adding tasks
 3. Ensure that the `swarms` package and its dependencies are installed in your environment.
 
 ---
-
-Always keep your documentation up-to-date with any code or usage modifications for clarity and easy reference for your team.
