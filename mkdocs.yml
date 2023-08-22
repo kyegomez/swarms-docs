@@ -76,30 +76,13 @@ nav:
     - Checklist: "checklist.md"
 - Swarms:
   - Overview: "swarms/index.md"
-  - Structures:
-    - Pipelines: "swarms/structures/pipelines.md"
-    - Agents: "swarms/structures/agents.md"
-    - Workflows: "swarms/structures/workflows.md"
-    - Prompt Drivers: "swarms/structures/prompt-drivers.md"
-    - Conversation Memory: "swarms/structures/conversation-memory.md"
-    - Rulesets: "swarms/structures/rulesets.md"
-    - Events: "swarms/structures/events.md"
-  - Tools:
-      - Overview: "swarms/tools/index.md"
-      - Tool Memory: "swarms/tools/tool-memory.md"
-      - Building Custom Tools: "swarms/tools/custom-tools.md"
-  - Data:
-    - Overview: "swarms/data/index.md"
-    - Artifacts: "swarms/data/artifacts.md"
-    - Embeddings: "swarms/data/embeddings.md"
-    - Chunkers: "swarms/data/chunkers.md"
-    - Loaders: "swarms/data/loaders.md"
-    - Query Engines: "swarms/data/query-engines.md"
-    - Summary Engines: "swarms/data/summary-engines.md"
-    - Vector Stores: "swarms/data/vector-stores.md"
-    - SQL Drivers: "swarms/data/sql-drivers.md"
-  - Models:
-    - Overview: "swarms/models/index.md"
+  - Swarms:
+    - AutoScaler: "swarms/swarms/autoscaler.md"
+  - Workers:
+    - Overview: "swarms/workers/index.md"
+  - Agents:
+    - Base Models:
+      - Overview: "swarms/models/index.md"
 - Examples:
     - Overview: "examples/index.md"
     - Agents:
