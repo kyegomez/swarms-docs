@@ -41,11 +41,17 @@ poetry add swarms-tools
 With Swarms, you can create *structures*, such as `Agents`, `Pipelines`, and `Workflows`, that are composed of different types of tasks. First, let's build a simple Agent that we can interact with through a chat based interface. 
 
 ```python
-from swarms.structures import Agent
-from swarms.utils import Chat
+from swarms import Worker
 
-agent = Agent()
-Chat(agent).start()
+
+node = Worker(
+    openai_api_key="",
+    ai_name="Optimus Prime",
+)
+
+task = "What were the winning boston marathon times for the past 5 years (ending in 2022)? Generate a table of the year, name, country of origin, and times."
+response = node.run(task)
+print(response)
 ```
 Run this script in your IDE and you'll be presented with a `Q:` prompt where you can interact with your model. 
 ```
@@ -65,7 +71,7 @@ Q:
 If you want to skip the chat interface and load an initial prompt, you can do so using the `.run()` method: 
 
 ```python
-agent.run("write me a haiku about swarms")
+node.run("write me a haiku about swarms")
 ```
 Agents on their own are fun, but let's add some capabilities to them using Swarms Tools. 
 ### Build a Simple Agent with Tools 
@@ -135,7 +141,7 @@ pipeline.add_tasks(
 )
 
 pipeline.run(
-    "Load https://www.swarms.ai, summarize it, and store it in swarms.txt"
+    "Load https://www.apac.ai, summarize it, and store it in swarms.txt"
 )
 ```
 
