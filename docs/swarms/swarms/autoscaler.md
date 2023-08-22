@@ -156,7 +156,7 @@ You can pass any agent class that adheres to the required interface (like having
 ```python
 from swarms import AutoScaler
 
-auto_scaler = AutoScaler(agent_class=YourCustomAgent)
+auto_scaler = AutoScaler(agent=YourCustomAgent)
 auto_scaler.start()
 
 for i in range(100):  # Adding tasks
