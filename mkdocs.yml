@@ -76,8 +76,7 @@ nav:
     - Checklist: "checklist.md"
 - Swarms:
   - Overview: "swarms/index.md"
-  - Swarms:
-    - AutoScaler: "swarms/swarms/autoscaler.md"
+  - AutoScaler: "swarms/swarms/autoscaler.md"
   - Workers:
     - Overview: "swarms/workers/index.md"
   - Agents:
