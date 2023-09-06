@@ -1,159 +1,97 @@
-### Enterprise Grade Documentation
+# Module Name: Worker
 
----
+The `Worker` class encapsulates the idea of a semi-autonomous agent that utilizes a large language model to execute tasks. The module provides a unified interface for AI-driven task execution while combining a series of tools and utilities. It sets up memory storage and retrieval mechanisms for contextual recall and offers an option for human involvement, making it a versatile and adaptive agent for diverse applications.
 
-## Worker Class
+## **Class Definition**:
 
-The `Worker` class represents a core component of the framework designed to interact with ChatOpenAI models, utilize embeddings and vector stores, and run tasks. Enhanced with logging, error handling, and timing utilities, this class is integral for scalable and efficient task processing.
-
-```
-from swarms import WorkerNode
-```
-
----
-
-### Constructor: `Worker.__init__()`
-
-**Description**:  
-Initializes the `Worker` object by setting up necessary configurations, tools, memory, and the agent.
-
-**Parameters**:
-- `model_name (str)`: Name of the ChatOpenAI model. Default is "gpt-4".
-- `openai_api_key (str)`: API Key for OpenAI services. Default is `None`.
-- `ai_name (str)`: Name for the AI worker. Default is "Autobot Swarm Worker".
-- `ai_role (str)`: Role of the AI worker. Default is "Worker in a swarm".
-- `temperature (float)`: Temperature setting for the ChatOpenAI model, affecting randomness. Default is `0.5`.
-
-**Returns**:
-- None
-
-**Example Usage**:
 ```python
+class Worker:
+```
+
+### **Parameters**:
+
+- `model_name` (str, default: "gpt-4"): Name of the language model.
+- `openai_api_key` (str, Optional): API key for accessing OpenAI's models.
+- `ai_name` (str, default: "Autobot Swarm Worker"): Name of the AI agent.
+- `ai_role` (str, default: "Worker in a swarm"): Role description of the AI agent.
+- `external_tools` (list, Optional): A list of external tool objects to be used.
+- `human_in_the_loop` (bool, default: False): If set to `True`, it indicates that human intervention may be required.
+- `temperature` (float, default: 0.5): Sampling temperature for the language model's output. Higher values make the output more random, and lower values make it more deterministic.
+
+### **Methods**:
+
+#### `__init__`:
+
+Initializes the Worker class.
+
+#### `setup_tools`:
+
+Sets up the tools available to the worker. Default tools include reading and writing files, processing CSV data, querying websites, and taking human input. Additional tools can be appended through the `external_tools` parameter.
+
+#### `setup_memory`:
+
+Initializes memory systems using embeddings and a vector store for the worker.
+
+#### `setup_agent`:
+
+Sets up the primary agent using the initialized tools, memory, and language model.
+
+#### `run`:
+
+Executes a given task using the agent.
+
+#### `__call__`:
+
+Makes the Worker class callable. When an instance of the class is called, it will execute the provided task using the agent.
+
+## **Usage Examples**:
+
+### **Example 1**: Basic usage with default parameters:
+
+```python
+from swarms import Worker
+
 worker = Worker(model_name="gpt-4", openai_api_key="YOUR_API_KEY")
+result = worker.run("Summarize the document.")
 ```
 
----
+### **Example 2**: Usage with custom tools:
 
-### Method: `Worker.setup_tools()`
-
-**Description**:  
-Sets up essential tools required by the worker for processing tasks. 
-
-**Parameters**:
-- None
-
-**Returns**:
-- None
-
-**Example Usage**:
 ```python
-# Typically called internally during Worker initialization
-worker.setup_tools()
+from swarms import Worker, MyCustomTool
+
+worker = Worker(model_name="gpt-4", openai_api_key="YOUR_API_KEY", external_tools=[MyCustomTool()])
+result = worker.run("Perform a custom operation on the document.")
 ```
 
----
+### **Example 3**: Usage with human in the loop:
 
-### Method: `Worker.setup_memory()`
-
-**Description**:  
-Initializes the embeddings and vector stores required for task processing.
-
-**Parameters**:
-- None
-
-**Returns**:
-- None
-
-**Example Usage**:
-```python
-# Typically called internally during Worker initialization
-worker.setup_memory()
-```
-
----
-
-### Method: `Worker.setup_agent()`
-
-**Description**:  
-Initializes the agent to use the provided tools and memory setups.
-
-**Parameters**:
-- None
-
-**Returns**:
-- None
-
-**Example Usage**:
-```python
-# Typically called internally during Worker initialization
-worker.setup_agent()
-```
-
----
-
-### Method: `Worker.run(task)`
-
-**Description**:  
-Executes the specified task using the agent.
-
-**Parameters**:
-- `task`: The task to be executed by the agent.
-
-**Returns**:
-- `result`: The output after executing the task.
-
-**Example Usage**:
-```python
-task = "Some specific task"
-result = worker.run(task)
-print(result)
-```
-
----
-
-### Method: `Worker.__call__(task)`
-
-**Description**:  
-Allows the worker instance to be called as a function to execute the given task.
-
-**Parameters**:
-- `task`: The task to be executed by the agent.
-
-**Returns**:
-- `results`: The output after executing the task.
-
-**Example Usage**:
 ```python
 from swarms import Worker
 
-worker_instance = Worker()
-task = "Some specific task"
-result = worker_instance(task)  # Using worker as callable
-print(result)
-```
-**Configured Worker**:
-```python
-from swarms import Worker
-
-
-node = Worker(
-    openai_api_key="",
-    ai_name="Optimus Prime",
-    ai_role="You are John a nice worker in a swarm",
-    model_name="gpt-4
-)
-
-task = "What were the winning boston marathon times for the past 5 years (ending in 2022)? Generate a table of the year, name, country of origin, and times."
-response = node.run(task)
-print(response)
-
+worker = Worker(model_name="gpt-4", openai_api_key="YOUR_API_KEY", human_in_the_loop=True)
+result = worker.run("Translate this complex document, and ask for help if needed.")
 ```
 
+## **Mathematical Description**:
 
----
+Conceptually, the `Worker` class can be seen as a function:
 
-**Note**:
-1. Ensure you have the necessary dependencies installed and the OpenAI API key properly configured before initializing the `Worker` class.
-2. Handle exceptions gracefully in production environments.
-3. Always refer to the latest official documentation for updates and more details.
+\[ W(t, M, K, T, H, \theta) \rightarrow R \]
 
+Where:
+
+- \( W \) = Worker function
+- \( t \) = task to be performed
+- \( M \) = Model (e.g., "gpt-4")
+- \( K \) = OpenAI API key
+- \( T \) = Set of Tools available
+- \( H \) = Human involvement flag (True/False)
+- \( \theta \) = Temperature parameter
+- \( R \) = Result of the task
+
+This mathematical abstraction provides a simple view of the `Worker` class's capability to transform a task input into a desired output using a combination of AI and toolsets.
+
+## **Notes**:
+
+The Worker class acts as a bridge between raw tasks and the tools & AI required to accomplish them. The setup ensures flexibility and versatility. The decorators used in the methods (e.g., log_decorator, error_decorator) emphasize the importance of logging, error handling, and performance measurement, essential for real-world applications.
