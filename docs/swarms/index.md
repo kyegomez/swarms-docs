@@ -11,36 +11,17 @@ Swarms’s design philosophy is based on the following tenets:
 3. **Keep data off prompt by default**: When working with data through loaders and tools, Swarms aims to keep it off prompt by default, making it easy to work with big data securely and with low latency.
 4. **Minimal prompt engineering**: It’s much easier to reason about code written in Python, not natural languages. Swarms aims to default to Python in most cases unless absolutely necessary.
 
-## Quick Starts
 
-First, configure an OpenAI client by [getting an API key](https://beta.openai.com/account/api-keys) and adding it to your environment as `OPENAI_API_KEY`. If no specific [PromptDriver](structures/prompt-drivers.md) is defined, Swarms uses [OpenAI Completions API](https://platform.openai.com/docs/guides/completion) to execute LLM prompts. 
+## Installation
 
-### Using pip
+There are 2 methods, one is through `git clone` and the other is by `pip install swarms`. Check out the [DOCUMENTATION](DOCS/DOCUMENTATION.md) for more information on the classes.
 
-Install **swarms** and **swarms-tools**:
+* Pip install `pip3 install swarms`
 
-```
-pip3 install swarms 
-```
-
-### Using Poetry
-
-To get started with Swarms using Poetry first create a new poetry project from the terminal: 
-
-```
-poetry new swarms-quickstart
-```
-
-Change your working directory to the new `swarms-quickstart` directory created by Poetry and add the dependencies. 
-
-```
-poetry add swarms
-poetry add swarms-tools
-```
-## Build a Simple Agent 
-With Swarms, you can create *structures*, such as `Agents`, `Pipelines`, and `Workflows`, that are composed of different types of tasks. First, let's build a simple Agent that we can interact with through a chat based interface. 
+* Create new python file and unleash superintelligence
 
 ```python
+
 from swarms import Worker
 
 
@@ -53,99 +34,173 @@ task = "What were the winning boston marathon times for the past 5 years (ending
 response = node.run(task)
 print(response)
 ```
-Run this script in your IDE and you'll be presented with a `Q:` prompt where you can interact with your model. 
-```
-Q: write me a haiku about swarms 
-processing...
-[06/28/23 10:31:34] INFO     Task de1da665296c4a3799a0f280aff59610              
-                             Input: write me a haiku about swarms             
-[06/28/23 10:31:37] INFO     Task de1da665296c4a3799a0f280aff59610              
-                             Output: Swarms on my board,                      
-                             Keeps me steady, never slips,                      
-                             Skateboarding bliss.                               
-A: Swarms on my board,
-Keeps me steady, never slips,
-Skateboarding bliss.
-Q: 
-```
-If you want to skip the chat interface and load an initial prompt, you can do so using the `.run()` method: 
+
+---
+
+## Usage
 
 ```python
-node.run("write me a haiku about swarms")
-```
-Agents on their own are fun, but let's add some capabilities to them using Swarms Tools. 
-### Build a Simple Agent with Tools 
 
+from swarms import HuggingFaceLLM
+
+hugging_face_model = HuggingFaceLLM(model_id="Voicelab/trurl-2-13b")
+generated_text = hugging_face_model.generate("In a world where AI")
+
+```
 ```python
-from swarms.structures import Agent
-from swarms.tools import Calculator
 
-calculator = Calculator()
+from swarms import Worker
 
-agent = Agent(
-   tools=[calculator]
+
+node = Worker(
+    openai_api_key="",
+    ai_name="Optimus Prime",
 )
 
-agent.run(
-    "what is 7^12"
-)
-```
-Here is the chain of thought from the Agent. Notice where it realizes it can use the tool you just injected to do the calculation.[^1] 
-[^1]: In some cases a model might be capable of basic arithmatic. For example, gpt-3.5 returns the correct numeric answer but in an odd format.
+task = "What were the winning boston marathon times for the past 5 years (ending in 2022)? Generate a table of the year, name, country of origin, and times."
+response = node.run(task)
+print(response)
 
 ```
-[06/28/23 10:36:59] INFO     Task 891c17132d9f4f3e88c6281aadc1daeb              
-                             Input: what is 7^12                                
-[06/28/23 10:37:04] INFO     Subtask 26c4612c351c407db6fa974db3654d13           
-                             Thought: I can use the Calculator tool to calculate
-                             the value of 7 raised to the power of 12.          
-                                                                                
-                             Action:                                            
-                             {"type": "tool", "name": "Calculator", "activity": 
-                             "calculate", "input": {"values": {"expression":    
-                             "7**12"}}}                                         
-                    INFO     Subtask 26c4612c351c407db6fa974db3654d13           
-                             Observation: 13841287201                           
-[06/28/23 10:37:07] INFO     Task 891c17132d9f4f3e88c6281aadc1daeb              
-                             Output: The value of 7 raised to the power of 12 is
-                             13,841,287,201.   
+---
+
+# Documentation
+For documentation, go here, [the docs folder in the root diectory](https://swarms.apac.ai)
+
+**NOTE: We need help building the documentation**
+
+-----
+
+# Docker Setup
+The docker file is located in the docker folder in the `infra` folder, [click here and navigate here in your environment](/infra/Docker)
+
+* Build the Docker image
+
+* You can build the Docker image using the provided Dockerfile. Navigate to the infra/Docker directory where the Dockerfiles are located.
+
+* For the CPU version, use:
+
+```bash
+docker build -t swarms-api:latest -f Dockerfile.cpu .
+```
+For the GPU version, use:
+
+```bash
+docker build -t swarms-api:gpu -f Dockerfile.gpu .
+```
+### Run the Docker container
+
+After building the Docker image, you can run the Swarms API in a Docker container. Replace your_redis_host and your_redis_port with your actual Redis host and port.
+
+For the CPU version:
+
+```bash
+docker run -p 8000:8000 -e REDIS_HOST=your_redis_host -e REDIS_PORT=your_redis_port swarms-api:latest
 ```
 
-## Build a Simple Pipeline
-
-Let's define a simple two-task pipeline that uses tools and memory:
-
-```python
-from swarms.memory.structure import ConversationMemory
-from swarms.structures import Pipeline
-from swarms.tasks import ToolkitTask, PromptTask
-from swarms.tools import WebScraper, FileManager
-
-
-# Pipelines represent sequences of tasks.
-pipeline = Pipeline(
-    memory=ConversationMemory()
-)
-
-pipeline.add_tasks(
-    # Load up the first argument from `pipeline.run`.
-    ToolkitTask(
-        "{{ args[0] }}",
-        # Add tools for web scraping, and file management
-        tools=[WebScraper(), FileManager()]
-    ),
-    # Augment `input` from the previous task.
-    PromptTask(
-        "Say the following in spanish: {{ input }}"
-    )
-)
-
-pipeline.run(
-    "Load https://www.apac.ai, summarize it, and store it in swarms.txt"
-)
+## For the GPU version:
+```bash
+docker run --gpus all -p 8000:8000 -e REDIS_HOST=your_redis_host -e REDIS_PORT=your_redis_port swarms-api:gpu
 ```
 
-Boom! Our first LLM pipeline with two sequential tasks generated the following exchange:
+## Access the Swarms API
 
-> Q: Load https://swarms.readthedocs.io, summarize it, and store it in swarms.txt  
-> A: El contenido de https://swarms.readthedocs.io ha sido resumido y almacenado en swarms.txt.
+* The Swarms API will be accessible at http://localhost:8000. You can use tools like curl or Postman to send requests to the API.
+
+Here's an example curl command to send a POST request to the /chat endpoint:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"api_key": "your_openai_api_key", "objective": "your_objective"}' http://localhost:8000/chat
+```
+Replace your_openai_api_key and your_objective with your actual OpenAI API key and objective.
+
+----
+
+
+# ✨ Features
+* Easy to use Base LLMs, `OpenAI` `Palm` `Anthropic` `HuggingFace`
+* Enterprise Grade, Production Ready with robust Error Handling
+* Multi-Modality Native with Multi-Modal LLMs as tools
+* Infinite Memory Processing: Store infinite sequences of infinite Multi-Modal data, text, images, videos, audio
+* Usability: Extreme emphasis on useability, code is at it's theortical minimum simplicity factor to use
+* Reliability: Outputs that accomplish tasks and activities you wish to execute.
+* Fluidity: A seamless all-around experience to build production grade workflows
+* Speed: Lower the time to automate tasks by 90%. 
+* Simplicity: Swarms is extremely simple to use, if not thee simplest agent framework of all time
+* Powerful: Swarms is capable of building entire software apps, to large scale data analysis, and handling chaotic situations
+
+
+---
+# Roadmap
+
+Please checkout our [Roadmap](DOCS/ROADMAP.md) and consider contributing to make the dream of Swarms real to advance Humanity.
+
+## Optimization Priorities
+
+1. **Reliability**: Increase the reliability of the swarm - obtaining the desired output with a basic and un-detailed input.
+
+2. **Speed**: Reduce the time it takes for the swarm to accomplish tasks by improving the communication layer, critiquing, and self-alignment with meta prompting.
+
+3. **Scalability**: Ensure that the system is asynchronous, concurrent, and self-healing to support scalability.
+
+Our goal is to continuously improve Swarms by following this roadmap, while also being adaptable to new needs and opportunities as they arise.
+
+---
+
+# Bounty Program
+
+Our bounty program is an exciting opportunity for contributors to help us build the future of Swarms. By participating, you can earn rewards while contributing to a project that aims to revolutionize digital activity.
+
+Here's how it works:
+
+1. **Check out our Roadmap**: We've shared our roadmap detailing our short and long-term goals. These are the areas where we're seeking contributions.
+
+2. **Pick a Task**: Choose a task from the roadmap that aligns with your skills and interests. If you're unsure, you can reach out to our team for guidance.
+
+3. **Get to Work**: Once you've chosen a task, start working on it. Remember, quality is key. We're looking for contributions that truly make a difference.
+
+4. **Submit your Contribution**: Once your work is complete, submit it for review. We'll evaluate your contribution based on its quality, relevance, and the value it brings to Swarms.
+
+5. **Earn Rewards**: If your contribution is approved, you'll earn a bounty. The amount of the bounty depends on the complexity of the task, the quality of your work, and the value it brings to Swarms.
+
+---
+
+## The Plan
+
+### Phase 1: Building the Foundation
+In the first phase, our focus is on building the basic infrastructure of Swarms. This includes developing key components like the Swarms class, integrating essential tools, and establishing task completion and evaluation logic. We'll also start developing our testing and evaluation framework during this phase. If you're interested in foundational work and have a knack for building robust, scalable systems, this phase is for you.
+
+### Phase 2: Optimizing the System
+In the second phase, we'll focus on optimizng Swarms by integrating more advanced features, improving the system's efficiency, and refining our testing and evaluation framework. This phase involves more complex tasks, so if you enjoy tackling challenging problems and contributing to the development of innovative features, this is the phase for you.
+
+### Phase 3: Towards Super-Intelligence
+The third phase of our bounty program is the most exciting - this is where we aim to achieve super-intelligence. In this phase, we'll be working on improving the swarm's capabilities, expanding its skills, and fine-tuning the system based on real-world testing and feedback. If you're excited about the future of AI and want to contribute to a project that could potentially transform the digital world, this is the phase for you.
+
+Remember, our roadmap is a guide, and we encourage you to bring your own ideas and creativity to the table. We believe that every contribution, no matter how small, can make a difference. So join us on this exciting journey and help us create the future of Swarms.
+
+---
+
+# EcoSystem
+
+* [The-Compiler, compile natural language into serene, reliable, and secure programs](https://github.com/kyegomez/the-compiler)
+
+*[The Replicator, an autonomous swarm that conducts Multi-Modal AI research by creating new underlying mathematical operations and models](https://github.com/kyegomez/The-Replicator)
+
+* Make a swarm that checks arxviv for papers -> checks if there is a github link -> then implements them and checks them
+
+* [SwarmLogic, where a swarm is your API, database, and backend!](https://github.com/kyegomez/SwarmLogic)
+
+---
+
+# Demos
+
+![Swarms Demo](images/Screenshot_48.png)
+
+## Swarm Video Demo {Click for more}
+
+[![Watch the swarm video](https://img.youtube.com/vi/Br62cDMYXgc/maxresdefault.jpg)](https://youtu.be/Br62cDMYXgc)
+
+---
+
+# Contact 
+For enterprise and production ready deployments, allow us to discover more about you and your story, [book a call with us here](https://www.apac.ai/Setup-Call)
